@@ -1,0 +1,121 @@
+.stu-layout {
+  display: flex;
+}
+
+/* phần nội dung bên phải */
+.stu-main {
+  margin-left: 230px;
+  margin-top: 60px;
+  padding: 20px;
+  min-height: 100vh;
+  background: #f3f4f6;
+  width: 100%;
+}
+
+.stu-main-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* thẻ chung */
+.stu-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.stu-card h2,
+.stu-card h3 {
+  margin: 0 0 14px;
+  color: #111827;
+}
+
+/* thông tin cá nhân */
+.stu-card-info {
+  border-left: 5px solid #0f766e;
+}
+
+.stu-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 20px;
+}
+
+.stu-info-grid span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stu-info-grid p {
+  margin: 2px 0 0;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* layout 2 cột dưới */
+.stu-grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+/* bảng học phần */
+.stu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.stu-table thead {
+  background: #e0f2fe;
+}
+
+.stu-table th,
+.stu-table td {
+  border: 1px solid #e5e7eb;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.stu-table td.text-left {
+  text-align: left;
+}
+
+.stu-table td.score {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* tổng quan */
+.stu-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.stu-summary-item strong {
+  color: #0f766e;
+}
+
+.stu-summary-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .stu-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stu-main {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+}

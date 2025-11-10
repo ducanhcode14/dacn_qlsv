@@ -1,0 +1,105 @@
+/* Nền gradient */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Hộp form đăng nhập */
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  width: 360px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Tiêu đề */
+.login-title {
+  font-size: 22px;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* Ô input */
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin-top: 5px;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Nút đăng nhập */
+.btn-login {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.btn-login:hover {
+  background: #1e40af;
+  transform: scale(1.02);
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 20px;
+  color: #4b5563;
+}
+
+.link-register {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-register:hover {
+  text-decoration: underline;
+}
+
+/* Hiệu ứng fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
