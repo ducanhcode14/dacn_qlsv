@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-
+import statRoutes from "./routes/statRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import lecturerRoutes from "./routes/lecturerRoutes.js";
 import userRoutes from "./routes/userRoutes.js"; // ✅ thêm route phân quyền admin
@@ -24,7 +24,7 @@ mongoose
 app.use("/api/auth", authRoutes);          // Đăng ký, đăng nhập
 app.use("/api/lecturers", lecturerRoutes); // Route giảng viên
 app.use("/api/users", userRoutes);         // ✅ Route phân quyền admin-only
-
+app.use("/api/stats", statRoutes);
 // ====== Root route ======
 app.get("/", (req, res) => {
   res.send("🚀 API đang hoạt động bình thường!");
