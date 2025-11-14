@@ -9,6 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // mapping role → router path
   const roleToPath = {
     admin: "/admin/dashboard",
     student: "/user/profile",
@@ -18,19 +19,29 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const res = await api.post("/auth/login", { username, password });
+
+      if (!res.data?.token || !res.data?.user) {
+        alert("Phản hồi từ server không hợp lệ");
+        return;
+      }
+
       const { token, user } = res.data;
-      // lưu token & role & username
+
+      // Lưu thông tin người dùng
       localStorage.setItem("token", token);
       localStorage.setItem("role", user.role);
-      localStorage.setItem("username", user.username || username);
+      localStorage.setItem("username", user.username);
+      localStorage.setItem("userId", user.id); // ⭐ QUAN TRỌNG — BẠN CẦN CÁI NÀY
 
-      // redirect theo role
-      const path = roleToPath[user.role] || "/login";
-      // use navigate để không reload toàn bộ SPA
-      navigate(path, { replace: true });
+      // Điều hướng theo role
+      const redirectPath = roleToPath[user.role] || "/login";
+      navigate(redirectPath, { replace: true });
+
     } catch (err) {
+      console.error(err);
       alert(err.response?.data?.message || "Đăng nhập thất bại");
     }
   };
@@ -40,6 +51,7 @@ export default function Login() {
       <div className="login-box">
         <h2 className="login-title">Hệ thống Quản lý Sinh viên</h2>
         <p className="login-subtitle">Vui lòng đăng nhập để tiếp tục</p>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Tên đăng nhập</label>
@@ -51,6 +63,7 @@ export default function Login() {
               required
             />
           </div>
+
           <div className="form-group">
             <label>Mật khẩu</label>
             <input
@@ -61,10 +74,10 @@ export default function Login() {
               required
             />
           </div>
-          <button type="submit" className="btn-login">
-            Đăng nhập
-          </button>
+
+          <button type="submit" className="btn-login">Đăng nhập</button>
         </form>
+
         <div className="login-footer">
           <p>
             Chưa có tài khoản?{" "}
